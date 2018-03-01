@@ -2,7 +2,7 @@ package puzzle.balanceornot;
 
 import java.util.Arrays;
 
-public class solution {
+public class Solution {
 	static int[] balancedOrNot(String[] expressions, int[] maxReplacements) {
 		int[] result=new int[expressions.length];
 		for(int i=0;i<expressions.length;i++) {
