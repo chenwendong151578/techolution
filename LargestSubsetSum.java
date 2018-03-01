@@ -1,7 +1,7 @@
 
 import java.util.Arrays;
 
-public class MaxSubsetSum{
+public class LargestSubsetSum{
 	static long[] maxSubsetSum(int[] k) {
 		long[] result=new long[k.length];
 		for(int i=0;i<k.length;i++) {
