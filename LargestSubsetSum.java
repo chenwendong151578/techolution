@@ -3,6 +3,7 @@ import java.util.Arrays;
 
 public class LargestSubsetSum{
 	static long[] maxSubsetSum(int[] k) {
+		if(k==null || k.length==0) return null;
 		long[] result=new long[k.length];
 		for(int i=0;i<k.length;i++) {
 			int val=k[i];
