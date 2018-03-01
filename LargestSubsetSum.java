@@ -7,8 +7,8 @@ public class LargestSubsetSum{
 		long[] result=new long[k.length];
 		for(int i=0;i<k.length;i++) {
 			int val=k[i];
-			int sum=1+val;
-			for(int j=2;j<=val/2;j++) {
+			int sum=val==1?1:1+val;
+			for(int j=2;j<=val/2+1;j++) {
 				for(int z=2;z<=val/2;z++) {
 					if(j*z==val) {
 						sum+=j;
@@ -21,7 +21,7 @@ public class LargestSubsetSum{
 		return result;
 	}
 	public static void main(String[] args) {
-		System.out.println(Arrays.toString(maxSubsetSum(new int[] {2,4,15,16})));
+		System.out.println(Arrays.toString(maxSubsetSum(new int[] {1,2,4,15,16})));
 	}
 
 }
