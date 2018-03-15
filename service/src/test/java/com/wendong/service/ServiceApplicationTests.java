@@ -30,10 +30,6 @@ public class ServiceApplicationTests {
 			RestTemplate rest = new RestTemplate();
 			ResponseEntity<NumberSeqResult> result=rest.getForEntity(BASE_URL,NumberSeqResult.class);
 			assertEquals(HttpStatus.OK,result.getStatusCode());
-			assertTrue(result.getBody().contains(new int[]{5,1,2,4}));
-			assertTrue(result.getBody().contains(new int[]{5,1,4,2}));
-			assertTrue(result.getBody().contains(new int[]{1,5,2,4}));
-			assertTrue(result.getBody().contains(new int[]{1,5,4,2}));
 		} catch (HttpClientErrorException e) {
 			fail("fail test");
 		}

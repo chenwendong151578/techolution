@@ -4,6 +4,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.stream.IntStream;
+import java.util.Random;
+
 import static org.junit.Assert.*;
 
 public class NumberSeqTest {
@@ -15,11 +19,21 @@ public class NumberSeqTest {
 
     @Test
     public void numberSeq() {
-        int[] input= {2,1,1,17,42,73};
-        NumberSeqResult result=numberSeq.numberSeq(input);
-        assertTrue(result.contains(new int[]{1,1,17,73,2,42}));
-        assertTrue(result.contains(new int[]{1,17,1,73,42,2}));
-        assertTrue(result.contains(new int[]{1,17,73,1,2,42}));
-        assertFalse(result.contains(new int[]{1,2,17,73,1,42}));
+        //generate radom six number between 1-100
+        int[] input=IntStream.generate(()->{
+            Random r = new Random();
+            return  r.nextInt(100-1) + 1;
+        }).limit(6).toArray();
+
+        int[] result=numberSeq.numberSeq(input).getResult();
+        boolean hasEven=false;
+        for(int res:result){
+            if(res%2==0) hasEven=true;
+            else{
+                //if found any odd number after even, test fail
+                if (hasEven)fail("Odd number cannot be after even number");
+            }
+        }
+
     }
 }
